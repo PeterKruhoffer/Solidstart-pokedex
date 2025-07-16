@@ -16,10 +16,8 @@ bun run push
 ```
 
 Now you can run dev server
-
-### or start the server and open the app in a new browser tab
 ```bash
-bun run dev -- --open
+bun run dev
 ```
 
 ## Build the app
