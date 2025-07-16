@@ -1,0 +1,36 @@
+{
+  "name": "example-with-tailwindcss",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
+    "push": "drizzle-kit push"
+  },
+  "dependencies": {
+    "@effect/language-service": "^0.23.5",
+    "@solidjs/router": "^0.15.3",
+    "@solidjs/start": "^1.1.7",
+    "@tanstack/solid-query": "^5.83.0",
+    "add": "^2.0.6",
+    "axios": "^1.10.0",
+    "axios-cache-interceptor": "^1.8.0",
+    "better-sqlite3": "^12.2.0",
+    "drizzle-orm": "^0.44.3",
+    "effect": "^3.16.16",
+    "pokenode-ts": "^1.20.0",
+    "solid-js": "^1.9.7",
+    "vinxi": "^0.5.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/better-sqlite3": "^7.6.13",
+    "drizzle-kit": "^0.31.4",
+    "tailwindcss": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

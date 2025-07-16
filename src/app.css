@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {}
+
+@media (prefers-color-scheme: dark) {}
+
+body {}
+
+.pixelated {
+  image-rendering: pixelated;
+}
