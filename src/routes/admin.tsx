@@ -1,31 +1,31 @@
-import { action, redirect, useSubmission } from "@solidjs/router"
-import { Show } from "solid-js"
-import { queryClient } from "~/app"
-import { resetDB, setupPokemonDB } from "~/server/pokemonApi"
+import { action, redirect, useSubmission } from "@solidjs/router";
+import { Show } from "solid-js";
+import { queryClient } from "~/app";
+import { resetDB, setupPokemonDB } from "~/server/pokemonApi";
 
 const addPokemon = action(async () => {
-  "use server"
+  "use server";
   try {
-    await setupPokemonDB()
+    await setupPokemonDB();
   } catch (e) {
-    console.log("Failed to save pokemon")
+    console.log("Failed to save pokemon");
   }
-  console.log("Should have saved pokemon")
-  throw redirect("/allPokemon")
-})
+  console.log("Should have saved pokemon");
+  throw redirect("/allPokemon");
+}, "add-pokemon");
 
 const removeAllFromDB = action(async () => {
   try {
-    await resetDB()
-    queryClient.invalidateQueries({ queryKey: ["all-pokemon"] })
+    await resetDB();
+    queryClient.invalidateQueries({ queryKey: ["all-pokemon"] });
   } catch (e) {
-    console.log("Failed to reset")
+    console.log("Failed to reset");
   }
-  console.log("Should have reset DB")
-  throw redirect("/")
-})
+  console.log("Should have reset DB");
+  throw redirect("/");
+}, "remove-all-from-db");
 
-export default function AdminSetup() {
+export default function Admin() {
   const addSubmission = useSubmission(addPokemon);
   return (
     <section class="flex flex-col justify-center items-center gap-8 p-10">
@@ -44,8 +44,10 @@ export default function AdminSetup() {
         </button>
       </form>
       <form action={removeAllFromDB} method="post">
-        <button type="submit" class="border p-2 bg-red-400">Reset DB</button>
+        <button type="submit" class="border p-2 bg-red-400">
+          Reset DB
+        </button>
       </form>
     </section>
-  )
+  );
 }
