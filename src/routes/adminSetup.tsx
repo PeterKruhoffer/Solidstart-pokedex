@@ -15,6 +15,7 @@ const addPokemon = action(async () => {
 }, "add-pokemon");
 
 const removeAllFromDB = action(async () => {
+  "use server";
   try {
     await resetDB();
     queryClient.invalidateQueries({ queryKey: ["all-pokemon"] });
@@ -25,7 +26,7 @@ const removeAllFromDB = action(async () => {
   throw redirect("/");
 }, "remove-all-from-db");
 
-export default function Admin() {
+export default function AdminSetup() {
   const addSubmission = useSubmission(addPokemon);
   return (
     <section class="flex flex-col justify-center items-center gap-8 p-10">
@@ -39,7 +40,7 @@ export default function Admin() {
         >
           {addSubmission.pending ? "Saving to DB" : "Save to DB"}
           <Show when={addSubmission.pending}>
-            <div class="min-h-1 animate-pulse bg-gradient-to-r from-blue-400 to-blue-800"></div>
+            <div class="min-h-1 animate-pulse bg-gradient-to-r from-blue-400 to-blue-800" />
           </Show>
         </button>
       </form>
