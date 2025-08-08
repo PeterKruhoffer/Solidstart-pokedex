@@ -1,3 +1,4 @@
+import { A } from "@solidjs/router";
 import { useQuery } from "@tanstack/solid-query";
 import {
   createMemo,
@@ -138,9 +139,12 @@ function PokemonGrid(props: PokemonGridProps) {
     <div class="grid grid-cols-3 gap-4">
       <For each={props.pokemonList}>
         {(poke) => (
-          <div class="flex flex-col justify-center items-center gap-4 border">
+          <div class="relative flex flex-col justify-center items-center gap-4 border">
             <div>
-              <p class="text-xl uppercase text-center">{poke.name}</p>
+              <A href={`/pokemon/${poke.id}`}>
+                <span class="absolute inset-0"></span>
+                <p class="text-xl uppercase text-center">{poke.name}</p>
+              </A>
               <p class="text-lg uppercase text-center">#{poke.id}</p>
             </div>
             <div class="flex flex-row gap-x-4">
